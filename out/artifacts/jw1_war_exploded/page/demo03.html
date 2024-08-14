@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+    <link rel="stylesheet" href="../static/css/elementcss.css">
+    <link rel="stylesheet" href="../static/css/homework2.css">
+    <title>模拟登录</title>
+</head>
+<body>
+<form class="el-form" action="../loginServlet" method="post">
+    <div class="el-form-item is-required">
+        <label class="el-form-item__label" for="userName">用户名：</label>
+        <div class="el-form-item__content">
+            <div class="el-input">
+                <input class="el-input__inner" type="text" name="userName" id="userName">
+            </div>
+            <div class="el-form-item__error hide-element">用户名格式不正确</div>
+        </div>
+    </div>
+    <div class="el-form-item is-required">
+        <label class="el-form-item__label" for="password">密码：</label>
+        <div class="el-form-item__content">
+            <div class="el-input">
+                <input class="el-input__inner" type="password" name="password" id="password">
+            </div>
+            <div class="el-form-item__error hide-element">密码格式不正确</div>
+        </div>
+    </div>
+    <div class="el-form-item">
+        <div class="el-form-item__content">
+            <button type="submit" class="el-button el-button--primary">提交</button>
+        </div>
+    </div>
+    </div>
+</form>
+</body>
+<!--<script type="text/javascript" src="../static/js/createForm.js"></script>-->
+<script type="text/javascript">
+    let inputs = document.getElementsByClassName("el-input__inner");
+    let rxgName = /^[a-zA-Z][0-9a-zA-z_]{5,10}/;
+    let rxgPsw = /[0-9a-zA-z_]{6,12}/;
+    let isName = false;
+    let isPsw = false;
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("input", e => {
+            let name = e.target.name;
+            if (name === "userName") {
+                isName = rxgName.test(e.target.value);
+            } else {
+                isPsw = rxgPsw.test(e.target.value);
+            }
+            let test = name === "userName" ? isName = rxgName.test(e.target.value) : isPsw = rxgPsw.test(e.target.value);
+            //console.log(test);
+            let error = e.target?.parentNode?.nextElementSibling;
+            let formItem = e.target?.parentNode?.parentNode?.parentNode;
+            //console.log(formItem);
+            test ? formItem.classList?.remove("is-error") : formItem.classList?.add("is-error");
+            error.classList?.remove(test ? "show-element" : "hide-element");
+            error.classList?.add(test ? "hide-element" : "show-element");
+
+        })
+    }
+
+    let btn = document.getElementsByClassName("el-button")[0];
+    btn.addEventListener("click", e => {
+        /*event.preventDefault();
+        console.log(isName, isPsw);
+        if (isName && isPsw) {
+          alert("登录成功");
+        } else {
+          console.log("error");
+        }*/
+    })
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
