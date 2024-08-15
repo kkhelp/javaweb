@@ -11,7 +11,9 @@ import java.io.IOException;
 public class UnameServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("utf-8");
         String uname = req.getParameter("uname");
+        System.out.println("uname = " + uname);
         String info = "yes";
         if ("atguigu".equals(uname)) {
             info = "no";

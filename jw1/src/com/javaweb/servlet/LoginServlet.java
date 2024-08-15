@@ -14,6 +14,8 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         System.out.printf("%s, %s\n", userName, password);
         resp.setContentType("text/html");
+        //resp.setCharacterEncoding("UTF-8");
+        //resp.setContentType("text/html;charset=UTF-8");
         if ("abc123".equals(userName) && "abc123".equals(password)) {
             resp.getWriter().write("登录成功");
         } else {
