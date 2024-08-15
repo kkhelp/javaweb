@@ -20,9 +20,9 @@ public class handQuery<T> {
             t = constructor.newInstance();
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
+                field.setAccessible(true);
                 field.set(t, resultSet.getObject(field.getName()));
             }
-            System.out.println("t = " + t);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
