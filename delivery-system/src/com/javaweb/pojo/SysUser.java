@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * 用户实体类
+ */
 public class SysUser {
     private Integer id;
-    private String username;
+    private String userName;
     private String password;
     private String nickName;
 }
