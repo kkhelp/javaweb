@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 //@WebServlet(value = "/demo1", loadOnStartup = 10)
 public class ServlenDemo1 extends HttpServlet {
-    public void ServlenLifeCycle() {
+    public ServlenDemo1() {
         System.out.println("实例化");
     }
     public void init() {

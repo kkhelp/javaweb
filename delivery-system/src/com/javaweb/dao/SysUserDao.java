@@ -24,10 +24,11 @@ public interface SysUserDao {
      */
     int loginUser(String username,String password);
     /**
-     * 修改密码
+     * 修改密码，先判断原密码是否正确，正确才修改修改
      * @param id 用户id
-     * @param password 密码
+     * @param oldPasd 原密码
+     * @param newPasd 新密码
      * @return 返回搜影响行数 为0表示修改失败 大于0表示修改成功
      */
-    int modifyPassword(Integer id,String password);
+    int modifyPassword(Integer id, String oldPasd, String newPasd);
 }

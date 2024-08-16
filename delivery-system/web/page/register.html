@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<style>
+  form div {
+    margin: 12px;
+  }
+</style>
+<body>
+<div class="login-box">
+  <h1>注册</h1>
+  <form action="/addUser" method="post">
+    <div>
+      <label for="userName">用户名：</label>
+      <input type="text" name="userName" id="userName">
+    </div>
+    <div>
+      <label for="nickName">昵称：</label>
+      <input type="text" name="nickName" id="nickName">
+    </div>
+    <div>
+      <label for="password">密码：</label>
+      <input type="password" name="password" id="password">
+    </div>
+    <div>
+      <button type="submit">提交</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

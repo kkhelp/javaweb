@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 /**
@@ -18,11 +19,19 @@ public class handQuery<T> {
         try {
             Constructor<T> constructor = clazz.getDeclaredConstructor();
             t = constructor.newInstance();
-            Field[] fields = clazz.getDeclaredFields();
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int count = metaData.getColumnCount();
+            for (int i = 0; i < count; i++) {
+                String label = metaData.getColumnLabel(i + 1);
+                Field field = clazz.getDeclaredField(label);
+                field.setAccessible(true);
+                field.set(t, resultSet.getObject(label));
+            }
+            /*Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
                 field.set(t, resultSet.getObject(field.getName()));
-            }
+            }*/
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -32,6 +41,8 @@ public class handQuery<T> {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
         return t;

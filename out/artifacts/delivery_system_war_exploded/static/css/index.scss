@@ -1,0 +1,101 @@
+$sys-header-height: 72px;
+$sys-footer-height: 48px;
+$sys-content-left-width: 240px;
+
+$sys-color1: #9f9f9f;
+
+
+* {
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0 24px;
+}
+
+#system {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sys-header {
+  height: $sys-header-height;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sys-header-log {
+  width: $sys-content-left-width;
+  text-align: center;
+}
+
+.sys-header-log {
+
+}
+
+.sys-header-user {
+  display: flex;
+}
+
+.sys-header-user {
+  .sys-user-title, .sys-user-exit {
+    //text-align: center;
+    :hover {
+      cursor: pointer;
+      color: #000;
+      background: #fff;
+    }
+  }
+}
+
+.sys-header-user > .sys-user-title {
+  width: 100px;
+}
+
+.sys-user-title > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  overflow: hidden;
+
+  li {
+    height: 100%;
+    text-align: center;
+    line-height: $sys-header-height;
+  }
+}
+
+.sys-header-user > .sys-user-exit {
+  width: 80px;
+}
+
+
+.sys-content {
+  flex: 1;
+  display: flex;
+}
+
+.sys-content-left {
+  width: $sys-content-left-width;
+}
+
+.sys-content-right {
+  flex: 1;
+}
+
+.sys-footer {
+  height: $sys-footer-height;
+}
+
+.sys-footer > p {
+  color: $sys-color1;
+  font-size: 12px;
+  text-align: center;
+}
