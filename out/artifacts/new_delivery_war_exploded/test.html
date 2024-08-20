@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        position: relative;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        color: #fff;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <div class="box">测试页面-01</div>
+</body>
+<script type="text/javascript">
+    var box = document.querySelector('.box');
+    console.log("box-el = ", box);
+    box.addEventListener("keydown", e => {
+        console.log("keydown", e);
+    })
+    box.addEventListener("keyup", e => {
+        console.log("keyup", e);
+    })
+</script>
+</html>

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/delivery-new/delivery-new.iml" filepath="$PROJECT_DIR$/delivery-new/delivery-new.iml" />
       <module fileurl="file://$PROJECT_DIR$/delivery-system/delivery-system.iml" filepath="$PROJECT_DIR$/delivery-system/delivery-system.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb.iml" filepath="$PROJECT_DIR$/javaweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/jw1/jw1.iml" filepath="$PROJECT_DIR$/jw1/jw1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jw2/jw2.iml" filepath="$PROJECT_DIR$/jw2/jw2.iml" />
     </modules>
   </component>
 </project>

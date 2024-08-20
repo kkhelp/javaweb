@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>快递管理系统</title>
+        <meta name="Copyright" content="Douco Design." />
+        <link href="css/public.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="js/jquery.autotextarea.js"></script>
+    </head>
+    <body>
+        <div id="dcWrap">
+            <div id="dcHead">
+                <div id="head">
+                    <div class="logo"><a href="index.jsp"><img width="100px"
+                                                               height="25px" src="images/dclogo.gif"
+                                                               alt="logo"></a></div>
+                    <div class="nav">
+                        <ul class="navRight">
+                            <li class="M noLeft"><a
+                                    href="JavaScript:void(0);">您好，admin</a>
+                                <div class="drop mUser">
+                                    <a href="password.html">修改密码</a>
+                                </div>
+                            </li>
+                            <li class="noRight"><a
+                                    href="login.jsp">退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- dcHead 结束 --> <div id="dcLeft"><div id="menu">
+                    <ul class="top">
+                        <li><a href="index.jsp"><i
+                                    class="home"></i><em>管理首页</em></a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="password.html"><i
+                                    class="system"></i><em>修改密码</em></a></li>
+                        <li><a href="list.html"><i
+                                    class="nav"></i><em>快递管理</em></a></li>
+                    </ul>
+                </div></div>
+            <div id="dcMain">
+                <!-- 当前位置 -->
+                <div id="urHere">快递管理系统<b>></b><strong>快递列表</strong> </div>
+                <div class="mainBox"
+                    style="height:auto!important;height:550px;min-height:550px;">
+                    <h3><a href="add.html"
+                            class="actionBtn add">添加快递</a>快递列表</h3>
+                    <!-- 
+                    本阶段不实现!!        
+                    <div class="filter">
+                        <form action="#" method="post">
+                            物流公司
+                            <select name="cat_id">
+                                <option value>请选择</option>
+                                <option value="1"> 申通快递</option>
+                                <option value="2"> 圆通快递</option>
+                                <option value="2"> 韵达快递</option>
+                            </select>
+                            收件人手机号 <input name="keyword" type="text"
+                                class="inpMain" value size="20" />
+                            签收状态 <select name="cat_id">
+                                <option value>请选择</option>
+                                <option value="1">已签收</option>
+                                <option value="2"> 未签收</option>
+
+                            </select>
+                            <input name="submit" class="btnGray" type="submit"
+                                value="筛选" />
+                        </form>
+
+                    </div> -->
+                    <div id="list">
+
+                        <table width="100%" border="0" cellpadding="8"
+                            cellspacing="0" class="tableBasic">
+                            <tr>
+
+                                <th width="40" align="center">编号</th>
+                                <th width="80" align="center">物流公司</th>
+                                <th width="80" align="center">收件人</th>
+                                <th width="80" align="center">手机号</th>
+                                <th width="80" align="center">送达日期</th>
+                                <th align="center">地址</th>
+                                <th width="80" align="center">签收状态</th>
+                                <th width="80" align="center">操作</th>
+                            </tr>
+                            <tr>
+                                <td align="center">1</td>
+                                <td>申通快递</td>
+                                <td align="center">张老师</td>
+                                <td align="center">13700008888</td>
+                                <td align="center">2024-08-11</td>
+                                <td align="center">北京市昌平区宏福科技园B座</td>
+                                <td align="center">已签收</td>
+                                <td align="center">
+                                    <a href="#">编辑</a> | <a href="#">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">2</td>
+                                <td>申通快递</td>
+                                <td align="center">王老师</td>
+                                <td align="center">13700009999</td>
+                                <td align="center">2024-08-10</td>
+                                <td align="center">北京市昌平区宏福科技园B座</td>
+                                <td align="center">未签收</td>
+                                <td align="center">
+                                    <a href="#">编辑</a> | <a href="#">删除</a>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="pager"> <a href="article.php?page=1">第一页</a>
+                        <a href="article.php?page=1"> 上一页</a> <a
+                            href="article.php?page=1">下一页</a> <a
+                            href="article.php?page=1">最末页</a></div> </div>
+            </div>
+            <div class="clear"></div>
+            <div id="dcFooter">
+                <div id="footer">
+                    <div class="line"></div>
+                    <ul>
+                        版权所有 © 2024-2025 尚硅谷教育，并保留所有权利。
+                    </ul>
+                </div>
+            </div><!-- dcFooter 结束 -->
+            <div class="clear"></div> </div>
+        <script type="text/javascript">
+ 
+ onload = function()
+ {
+   document.forms['action'].reset();
+ }
+
+ function douAction()
+ {
+     var frm = document.forms['action'];
+
+     frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
+ }
+let name = "asfafa";
+ console.log("模板引擎", ${name});
+ 
+ </script>
+    </body>
+</html>

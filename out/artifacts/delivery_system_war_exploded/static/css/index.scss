@@ -41,12 +41,16 @@ body {
 
 .sys-header-user {
   display: flex;
-}
-
-.sys-header-user {
+  height: 100%;
   .sys-user-title, .sys-user-exit {
-    //text-align: center;
-    :hover {
+    height: 100%;
+    p {
+      margin: 0;
+      height: 100%;
+      line-height: 100%;
+      text-align: center;
+    }
+    p:hover {
       cursor: pointer;
       color: #000;
       background: #fff;
@@ -84,6 +88,21 @@ body {
 
 .sys-content-left {
   width: $sys-content-left-width;
+  background: #f5f5f5;
+  ul {
+    width: 100%;
+    list-style: none;
+    padding: 0 12px;
+    margin: 0;
+    li {
+      height: 48px;
+      text-align: center;
+      line-height: 48px;
+      :hover {
+        background-color: #9f9f9f;
+      }
+    }
+  }
 }
 
 .sys-content-right {
