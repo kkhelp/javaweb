@@ -15,34 +15,30 @@ import java.sql.SQLException;
 public class handQuery<T> {
 
     public T toClass(ResultSet resultSet, Class<T> clazz) {
+        Constructor<T> constructor = null;
         T t = null;
         try {
-            Constructor<T> constructor = clazz.getDeclaredConstructor();
+            // 获取无参构造器
+            constructor = clazz.getDeclaredConstructor();
+            // 创建对象
             t = constructor.newInstance();
             ResultSetMetaData metaData = resultSet.getMetaData();
-            int count = metaData.getColumnCount();
-            for (int i = 0; i < count; i++) {
-                String label = metaData.getColumnLabel(i + 1);
-                Field field = clazz.getDeclaredField(label);
-                field.setAccessible(true);
-                field.set(t, resultSet.getObject(label));
+            int columnCount = metaData.getColumnCount();
+            for (int i = 0; i < columnCount; i++) {
+                String columnLabel = metaData.getColumnLabel(i + 1);
+                // 如果字段名与数据库中的字段名相同，则将数据库中的字段值赋给实体类的属性
+                Field field = null;
+                try {
+                    field = clazz.getDeclaredField(columnLabel);
+                    field.setAccessible(true);
+                    field.set(t, resultSet.getObject(columnLabel));
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                    System.out.println(clazz + "中，字段名" + columnLabel + "不存在");
+                }
             }
-            /*Field[] fields = clazz.getDeclaredFields();
-            for (Field field : fields) {
-                field.setAccessible(true);
-                field.set(t, resultSet.getObject(field.getName()));
-            }*/
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException |
+                 SQLException e) {
             e.printStackTrace();
         }
         return t;

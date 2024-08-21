@@ -17,7 +17,7 @@ import java.util.List;
 public class BaseDao {
     public <T> List<T> baseQuery(Connection conn, String sql, Class<T> clazz, Object ...args) {
         if (conn == null)
-            conn = JDBCUtils.getConnection();
+            throw new RuntimeException("数据库连接对象不能为空");
         List<T> list = new ArrayList<>();
         ResultSet resultSet = null;
         try {
@@ -44,7 +44,7 @@ public class BaseDao {
      */
     public int baseCountQuery(Connection conn, String sql, Object ...args) {
         if (conn == null)
-            conn = JDBCUtils.getConnection();
+            throw new RuntimeException("数据库连接对象不能为空");
         ResultSet resultSet = null;
         try {
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class BaseDao {
      */
     public int baseUpdate(Connection conn, String sql, Object ...args) {
         if (conn == null)
-            conn = JDBCUtils.getConnection();
+            throw new RuntimeException("数据库连接对象不能为空");
         try {
             PreparedStatement statement = conn.prepareStatement(sql);
             setArgs(statement,args);

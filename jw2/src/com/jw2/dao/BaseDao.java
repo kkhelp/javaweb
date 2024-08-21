@@ -81,7 +81,9 @@ public class BaseDao {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             handleArgs(preparedStatement, args);
             resultSet = preparedStatement.executeQuery();
-            t = new EntityUtils<T>().resultSetToEntity(resultSet, clazz);
+            if (resultSet.next()) {
+                t = new EntityUtils<T>().resultSetToEntity(resultSet, clazz);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

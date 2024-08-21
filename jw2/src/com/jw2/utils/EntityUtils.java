@@ -27,12 +27,14 @@ public class EntityUtils<T> {
             for (int i = 0; i < columnCount; i++) {
                 String columnLabel = metaData.getColumnLabel(i + 1);
                 // 如果字段名与数据库中的字段名相同，则将数据库中的字段值赋给实体类的属性
+                Field field = null;
                 try {
-                    Field field = clazz.getDeclaredField(columnLabel);
+                    field = clazz.getDeclaredField(columnLabel);
+                    field.setAccessible(true);
                     field.set(t, resultSet.getObject(columnLabel));
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
-                    System.out.println("字段名：" + columnLabel + "不存在");
+                    System.out.println(clazz + "中，字段名" + columnLabel + "不存在");
                 }
             }
         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException |

@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebListener;
  * @description TODO
  */
 // 使用注解声明监听器
-@WebListener
+//@WebListener
 public class ListenDemo1 implements ServletContextListener, ServletContextAttributeListener {
     // 监听应用域属性的增加
     @Override
